@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.study.mapper.MemberMapper">
+
+	<!-- 회원등록 -->
+	<insert id="memberRegister">
+		insert into TR_MEMBER(id,pw,name,tel,email,addr)
+		values(#{id},#{pw},#{name},#{tel},#{email},#{addr})
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="memberLogin" parameterType="memberDTO" resultType="memberDTO">
+		select * from TR_MEMBER where id = #{id} and pw = #{pw}
+	</select>
+	
+	<!-- 전체 회원목록조회 -->
+	<select id="memberList" parameterType="memberDTO" resultType="memberDTO">
+		select * from TR_MEMBER
+	</select>
+
+</mapper>
