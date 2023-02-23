@@ -21,7 +21,7 @@ public class MemberController {
 	// 회원등록 (페이지)
 	@RequestMapping("memberRegisterPage.do")
 	public String memberRegisterPage() {
-		return "member/register_page";
+		return "member/register_page(No Kakao API ver)";
 	}
 	
 	// 회원등록 (실행)
@@ -58,22 +58,44 @@ public class MemberController {
 			String id = mDto.getId();
 			String name = mDto.getName();
 			
-			model.addAttribute("id", id);
-			model.addAttribute("name", name);
+			model.addAttribute("memberId", id);
+			model.addAttribute("memberName", name);
 			
+			
+			session.setAttribute("isLogin", "yes"); //로그인 성공 여부 YES
 			// session.setAttribute("UserLoginInfo", "admin");			
 			session.setAttribute("loginProcess", "Success");
-			session.setAttribute("name", name);
+			session.setAttribute("memberId", id);
+			session.setAttribute("memberName", name);
 				
-			return "member/chk";
+			System.out.println("memberId : " + id);
+			
 			
 		}else {
 			session.setAttribute("loginProcess", "Fail");
 			return "member/login_page";
 		}
 	
-	
+		return "main_page";
 	}
+	
+	
+	// 로그아웃
+	@RequestMapping("memberLogout.do")
+	public String memberLogout(HttpSession session) {
+		
+		session.removeAttribute("isLogin");
+		session.removeAttribute("LoginProcess");
+		session.removeAttribute("memberId");
+		session.removeAttribute("memberName");
+		session.removeAttribute("isAccount");
+		
+		session.setAttribute("LogoutMsg","정상적으로 로그아웃처리 되었습니다.");
+		
+		
+		return "main_page";
+	}
+	
 	
 	// 회원목록(페이지)
 	@RequestMapping("memberListPage.do")

@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="./module.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
+
+
+
+
+
 
 
 <!--PRELOADER : START-->
@@ -29,6 +37,19 @@
                 <a href="#">메뉴3</a>
             </div>
         </div>
+              	
+           
+    	<c:if test="${sessionScope.memberId != null}">
+        <div class="col-xl-4 text-end align-items-center">
+            <div class="d-inline me-2">
+                <a href="memberLogout.do">로그아웃</a>
+            </div>
+            <div class="d-inline me-2">
+                <span>ID : ${sessionScope.memberId}</span>
+            </div>
+        </div>
+    	</c:if>
+    	<c:if test="${sessionScope.memberId == null}">
         <div class="col-xl-4 text-end align-items-center">
             <div class="d-inline me-2">
                 <a href="memberLoginPage.do">로그인</a>
@@ -37,6 +58,8 @@
                 <a href="memberRegisterPage.do">회원가입</a>
             </div>
         </div>
+        </c:if>
+
     </div>
 </div>
 <!--/.HEADER : END-->

@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../inc/module.jsp" %>
 
+<!-- 로그인 페이지 디자인 (css) -->
+<link rel="stylesheet" href="${ctx}/resources/css/login.css">
+<!-- 로그인 유효성 체크 (js)-->
+<script type="text/javascript" src="${ctx}/resources/js/login_valid.js"></script>
+
+
 <!--HEADER : START-->
 <%@ include file="../inc/header.jsp" %>
 <!--/.HEADER : END-->

@@ -345,13 +345,11 @@ p {
 
  #login-button{
     width: 350px;
-    background-color: rgb(0, 79, 131);
     margin-bottom: 10px;
   }
 
   #register-button{
     width: 350px;
-    background-color: rgb(39, 174, 96);
     margin-bottom: 10px;  
   }
 

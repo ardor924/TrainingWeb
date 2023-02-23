@@ -11,8 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 회원등록 -->
 	<insert id="memberRegister">
-		insert into TR_MEMBER(id,pw,name,tel,email,addr)
-		values(#{id},#{pw},#{name},#{tel},#{email},#{addr})
+		insert into TR_MEMBER(id,pw,name,age,email,tel,zipcode,roadAddr,jibunAddr,detailAddr)
+		values(#{id},#{pw},#{name},#{age},#{email},#{tel},#{zipcode},#{roadAddr},#{jibunAddr},#{detailAddr})
 	</insert>
 	
 	<!-- 로그인 -->

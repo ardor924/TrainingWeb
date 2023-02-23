@@ -24,6 +24,7 @@
 								<th>아이디</th>
 								<th>비밀번호</th>
 								<th>이름</th>
+								<th>나이</th>
 								<th>전화</th>
 								<th>이메일</th>
 								<th>주소</th>
@@ -37,9 +38,10 @@
 								<td>${li.id}</td>
 								<td>${li.pw}</td>
 								<td>${li.name}</td>
+								<td>${li.age}</td>
 								<td>${li.tel}</td>
 								<td>${li.email}</td>
-								<td>${li.addr}</td>
+								<td>${li.jibunAddr}/${li.detailAddr}</td>
 							</c:forEach>
 							</tbody>
 							<tr>

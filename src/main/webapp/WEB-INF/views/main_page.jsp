@@ -5,6 +5,11 @@
 <%@ include file="./inc/header.jsp" %>
 <!--/.HEADER : END-->
 
+<!-- 미 로그인시 메세지 : START -->
+<%@ include file="./inc/MSG.jsp" %>
+<!-- 미 로그인시 메세지 : END -->
+
+
 <!--CONTENT WRAP : START-->
 <div class="content-wrap">
     <!-- CONTENT : START-->
@@ -20,6 +25,12 @@
                         <a href="#">
                             <div class="main-content">
                                 <h1>화면구성 준비중..</h1>
+                                <h1>${sessionScope.memberId}</h1>
+					              <c:if test="${sessionScope.isLogin != null}">
+					              	<div>로그인성공!!!!</div>
+					              	<div>${memberId}</div>
+					              	<div>${memberName}</div>
+					              </c:if>                                
                             </div>
                         </a>
                     <!-- hero-content-wrap : START -->

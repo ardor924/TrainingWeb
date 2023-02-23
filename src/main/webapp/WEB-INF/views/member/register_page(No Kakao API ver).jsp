@@ -5,11 +5,7 @@
 <!-- 회원가입 페이지 디자인 (css) -->
 <link rel="stylesheet" href="${ctx}/resources/css/register.css">
 <!-- 회원가입 유효성 체크 (js)-->
-<script type="text/javascript" src="${ctx}/resources/js/register_valid.js"></script>
-
-<!-- 카카오 주소 API -->
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="${ctx}/resources/js/kakao_addr_API.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/register_valid(No Kakao API ver).js"></script>
 
 <!--HEADER : START-->
 <%@ include file="../inc/header.jsp" %>
@@ -93,7 +89,7 @@
 	                                <div class="row">
 	                                    <div class="col-2 p-0">전화번호</div>
 	                                    <div class="col-10">
-	                                        <input type="text" class="form-control" name="tel" placeholder="전화번호를 입력하세요">
+	                                        <input type="text" class="form-control" name="tel" placeholder="010-xxxx-xxxx">
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -102,30 +98,10 @@
                                         <div class="row">
                                             <div class="col-2 p-0">주소</div>
                                             <div class="col-10">
-                                                <input class="form-control form-control mb-2" type="text" name= "zipcode" id="zipcode" placeholder="우편번호"/>
+                                                <input class="form-control form-control mb-2" type="text" name= "zipcode" id="zipcode" placeholder="주소입력"/>
                                             </div>																                               
                                         </div>
                                     </div>
-                                    
-                                    <div class="m-0 p-0">
-                                        <div class="row text-start mb-2">
-                                            <div class="col-2 p-0"></div>
-                                            <div class="col-10">
-                                                <a class="btn btn-sm btn-secondary" href="javascript:sample4_execDaumPostcode()">우편번호 찾기</a>
-                                            </div>		                                    															                               
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="m-0 p-0">
-                                        <div class="row mb-2">
-                                            <div class="col-2 p-0">상세주소</div>
-                                            <div class="col-10">
-                                                <input class="form-control form-control mb-2 " type="text" name="roadAddr" id="roadAddr" placeholder="도로명주소" >
-                                                <input class="form-control form-control mb-2 " type="text" name="jibunAddr" id="jibunAddr" placeholder="지번주소"> 										
-                                                <input class="form-control form-control mb-2 " type="text" name="detailAddr" id="detailAddr" placeholder="상세주소">	 
-                                            </div>																                               
-                                        </div>
-                                    </div>	
 
 	                            <div>
 	                                <button type="button" onclick="inputChk()" id="register-button" class="btn btn-success">가입</button>
