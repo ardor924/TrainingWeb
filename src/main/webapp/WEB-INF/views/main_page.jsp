@@ -9,8 +9,9 @@
 <%@ include file="./inc/MSG.jsp" %>
 <!-- 미 로그인시 메세지 : END -->
 
-<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/main.css">
 
+<!-- <link rel="stylesheet" type="text/css" href="${ctx}/resources/css/main.css"> -->
+<link rel="stylesheet" type="text/css" href="css/main.css">
 
     <!--CONTENT WRAP : START-->
     <div class="content-wrap">
@@ -19,32 +20,96 @@
             <!-- HOME : START -->
             <section id="main_home">
                 <!-- container :START -->
-                <div class="container-fluid bg-dark h-100">
+                <div class="container-fluid pb-3">
                     <!-- row : START -->
                     <div class="row">
-                        
-                        <div class="banner-wrap border-danger">
-                            <img src="${ctx}/resources/img/banner_0.jpg" alt="banner_1">
+                        <div class="banner-wrap">
+                        	<div>                           
+                            	<img src="${banner}" alt="banner">
+                        	</div>                   
+	                        <div class="banner-text">
+	                            <h1>Coding Study Board</h1>
+	                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut </p> 
+	                        </div>
                         </div>
-                        <!-- main-content-wrap : START -->
-                        <div class="d-flex main-content-wrap bg-success">
 
-                            <div class="navbar side-navbar col-2 navbar bg-danger ms-5">
-                                <ul>
-                                    <li>1</li>
-                                    <li>2</li>
-                                    <li>3</li>
-                                </ul>
+                        <!-- main-content-wrap : START -->
+                        <div class="d-flex main-content-wrap h-100 mb-5 p-3">
+<!--                         <div class="d-flex main-content-wrap bg-success h-100 mb-5"> -->
+
+                            <div class="side-navbar-wrap col-2 ms-5 me-5">
+								<div class="side-navbar border border-redius w-100 h-100 bg-light p-3">
+								    <h6 class="text-black">전체글보기</h6>
+								    <hr>
+								    <h6 class="text-black">웹개발</h6>
+								    <hr>
+								    <div class="side-navbar-text"><a href="#">ㄴ Java-Spring</a></div>
+								    <div class="side-navbar-text"><a href="#">ㄴ JS / Jquery</a></div>
+								    <div class="side-navbar-text"><a href="#">ㄴ Angura.js</a></div>
+								    <div class="side-navbar-text"><a href="#">ㄴ CSS / Bootstrap</a></div>
+								    <hr>
+								    <h6>빅데이터 , AI , 크롤링</h6>
+								    <hr>
+								    <div class="side-navbar-text"><a href="#">ㄴ Python 크롤링</a></div>
+								    <div class="side-navbar-text"><a href="#">ㄴ 데이터 마이닝</a></div>
+								    <div class="side-navbar-text"><a href="#">ㄴ 머신러닝 / 딥러닝</a></div>
+								    <hr>
+								    <h6>CS지식</h6>
+								    <hr>
+								    <div class="side-navbar-text"><a href="#">ㄴ 디자인 패턴</a></div>
+								    <div class="side-navbar-text"><a href="#">ㄴ 운영체제</a></div>
+								    <div class="side-navbar-text"><a href="#">ㄴ 데이터베이스</a></div>
+								    <div class="side-navbar-text"><a href="#">ㄴ 자료 구조</a></div>
+								    <div class="side-navbar-text"><a href="#">ㄴ 알고리즘</a></div>
+								    <hr>                                    
+								</div>
                             </div>
 
-                            <div class="main-content  col-9 bg-info">
-                                <div  class="section">
+                            <div class="main-content  col-9 bg-light">
+                                <div  class="section p-5 border	">
                                     
 
+<div class="d-flex justify-content-between">
+<!-- 현재 페이지 표시-->
+	<div class="m-0 my-1 justify-content-start"><b>${bp.currentPage}</b> / ${bp.totalPage} pages / total :${bp.cntPerTotal}</div>
+	<!-- 검색기능 -->
+	<div class="d-flex justify-content-end">		
+ 		<form id="searchForm" method="post" action="${GoList}">
+		   <div class="d-flex justify-content-end">
+		   <input type="hidden" value="on" name="<portlet:namespace/>searchOn">
+		   <input type="hidden" value="${bp.cntPerPage}" name="<portlet:namespace/>cntPerPage">
+		   <input type="hidden" value="${ORDER}" name="<portlet:namespace/>ORDER">
+		   
+		      <!-- 검색 -->
+ 		      <select id="option" class="form-select me-2"  onchange="changeOption()" name="<portlet:namespace/>option" style="width:100px">
+		         <option id="select_none" value="keyword_X" ${option eq 'keyword_X' ? 'selected' : ''}>선택</option>
+		         <option value="keyword_S" ${option eq 'keyword_S' ? 'selected' : ''}>제목</option>
+		         <option value="keyword_C" ${option eq 'keyword_C' ? 'selected' : ''}>내용</option>
+		         <option value="keyword_W" ${option eq 'keyword_W' ? 'selected' : ''}>글쓴이</option>
+		      </select>
+      
+		      
+		      
+		      
+		      
+		      
+		      
+		      <!-- 검색창 -->
+		      <input id="keyword" value="${keyword}" class="form-control rounded-0 rounded-start" type="text" name="<portlet:namespace/>keyword" placeholder="검색어를 입력 하세요" 
+		      style="width:250px">
+		         
+		      <!-- 검색버튼 -->
+		      <button id="btn-search" class="btn btn-primary rounded-0 rounded-end" onclick="javascript:selectChk()" style="width:50px;  color:white" >
+		         <i class="fa fa-search"></i>
+		      </button> 
+		   </div>
+		</form>
+	</div>
+</div>
 
 <!-- ----------------------------------------------게시판 START--------------------------------------------------------------- -->
 <div>
-	<table class="table table-hover mt-3">
+	<table class="table table-hover mt-4 align-items-center	">
 		<thead>
 		  <th>
 			<form id="bnoOrderFrm" action="${BoardListURL}" method="post">
@@ -240,5 +305,5 @@
 
 
 <!--FOOTER :START-->
-<%@ include file="./inc/footer.jsp" %>
+<%-- <%@ include file="./inc/footer.jsp" %> --%>
 <!--/.FOOTER : END-->

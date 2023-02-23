@@ -43,7 +43,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping("main.do")
-	public String mainPage() {
+	public String mainPage(Model model) {
+		
+		model.addAttribute("banner", "image/banner_0.jpg");
+
 		return "main_page";
 	}
 	
