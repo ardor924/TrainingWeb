@@ -1,0 +1,80 @@
+/* -----------------------------------------------------------
+CONTENTS INDEX:
+--------------------------------------------------------------
+1) General
+2) Page Loader
+3) Header
+5) Typography
+6) Hero
+7) Sections
+ 7.a) portfolio
+ 7.b) service
+ 7.c) experience
+ 7.d) testimonial
+ 7.e) blog
+ 7.f) about
+ 7.g) contact
+ 7.h) footer
+8) Components
+ 8.a) skills
+
+
+-------------------------------------------------------------*/
+/*-----------------------------------------  5) Typography  --------------------------------------------------*/
+
+
+h6{
+	text-align: center
+}
+.side-navbar-text{
+	text-align: left;
+	padding-left: 25px;
+}
+
+/*----------------------------------------- 6) main_home --------------------------------------------------*/
+
+#main_home{
+    background-image: url("../img/mainPage.jpg");
+    background-size: cover;
+    
+    min-width: 100%;
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+
+    display: block;
+}
+
+
+
+
+.banner-wrap{
+  position: absolute; /*wrap의 좌표를 상속*/
+  text-align: center; /*hero-content의 텍스트 위치 중앙 설정*/
+  /*top: 110px;          /*화면 중앙에 위치하도록 이동*/
+  left: 10%;
+  transform: translateX(-10%) translateY(-10px); /* top과 left로 인해 시작지점이 중간이나 그 꼭지점 값만 이동시키기위해 반대로 -10%를 적용*/
+}
+
+
+
+.banner-text{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50px);
+	color: white;
+	text-align: center;
+	font-size: 	;
+	
+}
+
+.main-content-wrap{ /*좌표지점 x0. y0 으로 리셋 :: 버그사항 - 지점초기화할시 헤더부분 a태그 먹통됨...*/
+  position: absolute;
+  text-align: center; /*hero-content의 텍스트 위치 중앙 설정*/
+  /*top: 450px;          /*화면 중앙에 위치하도록 이동*/
+  top : 350px;
+  left: 10%;
+  transform: translateX(-10%); /* top과 left로 인해 시작지점이 중간이나 그 꼭지점 값만 이동시키기위해 반대로 -10%를 적용*/
+
+}

@@ -45,9 +45,25 @@ public class HomeController {
 	@RequestMapping("main.do")
 	public String mainPage(Model model) {
 		
-		model.addAttribute("banner", "image/banner_0.jpg");
+		model.addAttribute("banner1", "image/banner1.jpg");
+		model.addAttribute("banner2", "image/banner2.jpg");
+		model.addAttribute("banner3", "image/banner3.jpg");
+		
+		//임시프사		
+		model.addAttribute("memberimage", "image/unknown.png");
 
 		return "main_page";
 	}
+	
+	
+	@RequestMapping("test3.do")
+	public String test3View() {
+		return "test3";
+	}
+	
+	
+	
+	
+	
 	
 }

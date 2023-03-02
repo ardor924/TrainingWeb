@@ -58,9 +58,6 @@ public class MemberController {
 			String id = mDto.getId();
 			String name = mDto.getName();
 			
-			model.addAttribute("memberId", id);
-			model.addAttribute("memberName", name);
-			
 			
 			session.setAttribute("isLogin", "yes"); //로그인 성공 여부 YES
 			// session.setAttribute("UserLoginInfo", "admin");			
@@ -76,7 +73,7 @@ public class MemberController {
 			return "member/login_page";
 		}
 	
-		return "main_page";
+		return "redirect:/main.do";
 	}
 	
 	
@@ -93,7 +90,7 @@ public class MemberController {
 		session.setAttribute("LogoutMsg","정상적으로 로그아웃처리 되었습니다.");
 		
 		
-		return "main_page";
+		return "redirect:/main.do";
 	}
 	
 	

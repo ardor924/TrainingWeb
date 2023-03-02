@@ -2,10 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="./module.jsp" %>
 
-
-<!-- footer (css) -->
-<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/footer.css">
-
 <!--FOOTER :START-->
 <footer>
     <div class="footer-top">

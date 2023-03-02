@@ -4,8 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-<!-- header (css) -->
-<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/header.css">
+
+
+
+
+
 
 
 <!--PRELOADER : START-->
@@ -19,7 +22,7 @@
 
 <!--HEADER : START-->
 <!-- <div class="header .container h-100 bg-dark "> -->
-<header class=".container">
+<div class="container">
     <div class="navbar for-sticky row d-flex m-0 p-0">
         <div class="col-xl-8 text-start d-inline">
             <div class="d-inline me-2">
@@ -59,5 +62,5 @@
         </c:if>
 
     </div>
-</header>
+</div>
 <!--/.HEADER : END-->

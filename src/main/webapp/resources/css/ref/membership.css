@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+ /*----------------------------------------- 5) membership --------------------------------------------------*/
+
+#membership_home{
+	background-image: url("../img/member.jpg");
+    background-size: cover;
+    
+    min-width: 100%;
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+
+    display: block;
+
+    
+
+}
+
+
+.membership-content-wrap{ /*좌표지점 x0. y0 으로 리셋 :: 버그사항 - 지점초기화할시 헤더부분 a태그 먹통됨...*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .membership-content{
+    position: absolute; /*wrap의 좌표를 상속*/
+    top: 50%;          /*화면 중앙에 위치하도록 이동*/
+    left: 50%;
+
+    min-width: 300px;  /*hero-content의 가로 크기지정*/
+    text-align: center; /*hero-content의 텍스트 위치 중앙 설정*/
+    vertical-align: middle;
+
+    
+
+    transform: translateX(-50%) translateY(-50%); /* top과 left로 인해 시작지점이 중간이나 그 꼭지점 값만 이동시키기위해 반대로 -50%를 적용*/
+
+  }
+
+  .text-wrap{
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+
+
+   
+#web-logo{
+    position: relative;
+    top: 40px;
+    width: 350px;
+    height: 52px;
+    font-size: 1.5em;
+
+}
+
+#title-name{
+    position: relative; 
+    top: 10px;
+    width: 350px;
+    height: 54px;
+    font-size: 1.8em;
+}
+
+
+ #login-button{
+    width: 350px;
+    margin-bottom: 10px;
+  }
+
+  #register-button{
+    width: 350px;
+    margin-bottom: 10px;  
+  }
+
+.form-check{
+    position: relative;
+    left: 50px;
+    width: 200px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.form-control-wrap{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-control-text{
+	display: flex;
+	justify-content: center;
+	align-items : center;
+	padding-right: 0!important;
+	font-size : 1em;
+}

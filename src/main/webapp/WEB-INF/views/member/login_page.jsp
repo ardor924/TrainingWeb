@@ -2,7 +2,7 @@
 <%@ include file="../inc/module.jsp" %>
 
 <!-- 로그인 페이지 디자인 (css) -->
-<link rel="stylesheet" href="${ctx}/resources/css/login.css">
+<link rel="stylesheet" href="${ctx}/resources/css/membership.css">
 <!-- 로그인 유효성 체크 (js)-->
 <script type="text/javascript" src="${ctx}/resources/js/login_valid.js"></script>
 
@@ -36,10 +36,10 @@
                             <hr>
                             	
                             <form action="memberLoginChk.do" method="post">
-                                <div>
+                                <div class="form-control-wrap">
                                     <input name="id" type="text" class="form-control" placeholder="아이디를 입력하세요">
                                 </div>
-                                <div>
+                                <div class="form-control-wrap">
                                     <input name="pw" type="text" class="form-control" placeholder="비밀번호를 입력하세요">
                                 </div>
                                 <div>

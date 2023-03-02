@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../inc/module.jsp" %>
 
+
+<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/memberlist.css">
+
 <!--HEADER : START-->
 <%@ include file="../inc/header.jsp" %>
 <!--/.HEADER : END-->
@@ -57,7 +60,3 @@
     <!--/.CONTENT : END-->
 </div>
 <!--/.CONTENT WRAP : END-->
-
-<!--HEADER : START-->
-<%@ include file="../inc/footer.jsp" %>
-<!--/.HEADER : END-->

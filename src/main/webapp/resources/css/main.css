@@ -1,78 +1,272 @@
-/* -----------------------------------------------------------
-CONTENTS INDEX:
---------------------------------------------------------------
-1) General
-2) Page Loader
-3) Header
-5) Typography
-6) Hero
-7) Sections
- 7.a) portfolio
- 7.b) service
- 7.c) experience
- 7.d) testimonial
- 7.e) blog
- 7.f) about
- 7.g) contact
- 7.h) footer
-8) Components
- 8.a) skills
+@charset "UTF-8";
 
 
--------------------------------------------------------------*/
-/*-----------------------------------------  5) Typography  --------------------------------------------------*/
 
+/* -------------------------------메인컨텐츠----------------------------------------- */
 
-h6{
-	text-align: center
-}
-.side-navbar-text{
-	text-align: left;
-	padding-left: 25px;
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/*----------------------------------------- 6) main_home --------------------------------------------------*/
 
-#main_home{
-    background-image: url("./img/BG_main.jpg");
-    background-size: cover;
-    
-    min-width: 100%;
-    min-height: 100%;
+.main{
     height: 100%;
+}
+
+/* 캐러셀 */
+.carousel-item{
+    height: 250px;
+
+}
+
+.carousel-caption{
+    padding: 50px 150px;
+    color: #fff;
+
+    
+}
+
+/* -------------------------------헤더----------------------------------------- */
+
+.header{
+    display: flex;
+    align-items: center;
+
+    opacity: 0.8;
+    background: #ffffff;
+}
+
+.header-content-wrap{
+    height: 40px;
     width: 100%;
+    padding: 10px;
 
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #222;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+
+}
+
+.header-content-left ,.header-content-right{
+    display: flex;
+}
+
+.header-content-text{
+    margin : 0 5px;
 }
 
 
 
 
+
+
+
+
+
+
+
+
+
+/* 자체제작 배너 */
 .banner-wrap{
-  position: absolute; /*wrap의 좌표를 상속*/
-  text-align: center; /*hero-content의 텍스트 위치 중앙 설정*/
-  /*top: 110px;          /*화면 중앙에 위치하도록 이동*/
-  left: 10%;
-  transform: translateX(-10%) translateY(-10px); /* top과 left로 인해 시작지점이 중간이나 그 꼭지점 값만 이동시키기위해 반대로 -10%를 적용*/
+    background-image: url(../img/banner_12.jpg);
+    background-size: cover;
+    height: 250px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* margin: 10px 0; */
 }
 
-.main-content-wrap{ /*좌표지점 x0. y0 으로 리셋 :: 버그사항 - 지점초기화할시 헤더부분 a태그 먹통됨...*/
-  position: absolute;
-  text-align: center; /*hero-content의 텍스트 위치 중앙 설정*/
-  /*top: 450px;          /*화면 중앙에 위치하도록 이동*/
-  top : 350px;
-  left: 10%;
-  transform: translateX(-10%); /* top과 left로 인해 시작지점이 중간이나 그 꼭지점 값만 이동시키기위해 반대로 -10%를 적용*/
+.banner-text-wrap{
+    position: relative;
+    top: 30px;
+    padding: 0 150px;
+
+    color: #fff;
+}
+
+.banner-button-wrap{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top : 30px;
+}
+
+.button{
+    margin: 0 5px;
+}
+
+
+/* 컨텐츠*/
+.content-wrap{
+    display: flex;
+    padding: 0;
+    
+}
+
+
+
+
+/* 사이드바 */
+.sidebar-wrap{
+    margin: 30px 40px 20px 0;
+    flex-grow:0;
+
+    
+}
+
+.sidebar-memberinfo{
+    margin-bottom: 20px;
+    /* padding: 30px; */
+    padding: 20px;
+
+    border: 1px  solid black;
+}
+
+
+.memberinfo-text-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.memberinfo-content{
+    display: flex;
+    align-content: center;
+    margin-bottom: 10px;
 
 }
 
-.banner-text{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translateX(-50%) translateY(-50px);
-	color: white;
-	text-align: center;
-	font-size: 	;
-	
+
+
+.member-image-box{
+    border-radius: 50%;
+    overflow: hidden;
+
+    margin-right: 10px;
+    
 }
+
+.member-image{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+
+#subject-write-button{
+    width: 100%;
+}
+
+.sidebar-category-wrap{
+    margin-bottom: 2px;
+
+}
+
+.sidebar-category{
+    /* padding: 3px; */
+    padding: 20px;
+}
+
+.sidebar-category-wrap{
+    border: 1px  solid black;
+    /* border-top: 1px  solid black;
+    border-bottom: 1px  solid black; */
+    
+    
+}
+
+.sidebar-category-text-center{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    font-weight: bolder;
+}
+
+
+/* .sidebar-category-list{
+    padding: 0 20px;
+} */
+
+
+/* 아티클 메인주제 */
+.article-wrap{
+    margin: 30px 0 20px 0;
+    flex-grow:10;
+
+    padding: 25px;
+
+    /* border: 1px  solid black; */
+    
+}
+
+/* 메인탑 */
+.article-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-text-title{
+    display: flex;
+    align-items: center;
+
+}
+
+/* 검색창 */
+.search-form-wrap{
+    display: flex;
+    align-items: end;
+}
+
+#search-option{
+    margin-right: 8px;
+    width:100px
+
+}
+
+#search-keyword{
+    width:250px;
+}
+
+#btn-search{
+    width:50px;  
+    color:white
+}
+
+
+/* 게시판 */
+.article-center{
+    display: flex;
+    align-items: center;
+}
+
+.article-center-board{
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.board-orderform-wrap{  
+    display: flex;
+    align-items: center;
+
+}
+
+/* 푸터 */
+.footer{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
