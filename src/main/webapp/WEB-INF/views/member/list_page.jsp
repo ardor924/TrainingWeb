@@ -31,6 +31,7 @@
 								<th>전화</th>
 								<th>이메일</th>
 								<th>주소</th>
+								<th>가입일</th>
 							<tr>
 								
 							</thead>
@@ -45,6 +46,7 @@
 								<td>${li.tel}</td>
 								<td>${li.email}</td>
 								<td>${li.jibunAddr}/${li.detailAddr}</td>
+								<td>${li.regDate}</td>
 							</c:forEach>
 							</tbody>
 							<tr>

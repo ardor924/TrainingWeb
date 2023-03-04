@@ -11,8 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 회원등록 -->
 	<insert id="memberRegister">
-		insert into TR_MEMBER(id,pw,name,age,email,tel,zipcode,roadAddr,jibunAddr,detailAddr)
-		values(#{id},#{pw},#{name},#{age},#{email},#{tel},#{zipcode},#{roadAddr},#{jibunAddr},#{detailAddr})
+		insert into TR_MEMBER(id,pw,name,age,email,tel,zipcode,roadAddr,jibunAddr,detailAddr,regDate)
+		values(#{id},#{pw},#{name},#{age},#{email},#{tel},#{zipcode},#{roadAddr},#{jibunAddr},#{detailAddr},#{regDate})
 	</insert>
 	
 	<!-- 로그인 -->
@@ -24,5 +24,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="memberList" parameterType="memberDTO" resultType="memberDTO">
 		select * from TR_MEMBER
 	</select>
+	
+	
+	<!-- 회원1명의 정보 가져오기 -->
+	<select id="getMemberInfo" parameterType="memberDTO" resultType="memberDTO">
+		SELECT 8 from TR_MEMBER where id=#{id}
+	</select>
+	
+	<!-- 회원 등록날짜 가져오기 -->
+	<select id="getMemberRegDate" parameterType="memberDTO" resultType="String">
+		SELECT DATE_FORMAT(regDate, '%y.%m.%d') AS regDate
+		FROM TR_MEMBER where id = #{id};
+	</select>
+	
+	
+	
+	
 
 </mapper>

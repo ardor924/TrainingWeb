@@ -1,5 +1,7 @@
 package com.study.myapp;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +30,12 @@ public class MemberController {
 	@RequestMapping("memberInsert.do")
 	public String memberInsert(MemberDTO memberDTO) {
 		
+		
+		Date nowDate = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd hh:mm");
+		String regDate = sdf.format(nowDate);		
+		memberDTO.setRegDate(regDate);
+		
 		memberMapper.memberRegister(memberDTO);
 		
 		return "redirect:/memberLoginPage.do";
@@ -48,6 +56,10 @@ public class MemberController {
 	public String memberLoginChk(Model model,HttpServletRequest req,HttpSession session ,MemberDTO memberDTO) {
 		
 		MemberDTO mDto = memberMapper.memberLogin(memberDTO);
+		String regDate = memberMapper.getMemberRegDate(memberDTO);
+		
+		
+		
 		
 		
 		// DB에 회원정보가 있는지 체크
@@ -57,6 +69,7 @@ public class MemberController {
 			
 			String id = mDto.getId();
 			String name = mDto.getName();
+
 			
 			
 			session.setAttribute("isLogin", "yes"); //로그인 성공 여부 YES
@@ -64,9 +77,12 @@ public class MemberController {
 			session.setAttribute("loginProcess", "Success");
 			session.setAttribute("memberId", id);
 			session.setAttribute("memberName", name);
-				
-			System.out.println("memberId : " + id);
 			
+			
+			session.setAttribute("memberRegDate", regDate);
+				
+
+			System.out.println("regDate : "+regDate);
 			
 		}else {
 			session.setAttribute("loginProcess", "Fail");

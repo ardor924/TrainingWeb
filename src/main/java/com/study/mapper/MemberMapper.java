@@ -18,5 +18,8 @@ public interface MemberMapper {
 	// 회원목록()
 	public List<MemberDTO> memberList(MemberDTO memberDTO);
 	
+	// 회원가입일()
+	public String getMemberRegDate(MemberDTO memberDTO);
+	
 	
 }

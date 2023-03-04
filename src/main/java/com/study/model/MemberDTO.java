@@ -15,7 +15,7 @@ public class MemberDTO {
 	private String jibunAddr;
 	private String detailAddr;
 
-
+	private String regDate;
 	
 	
 	
@@ -29,7 +29,7 @@ public class MemberDTO {
 
 	// 전체 생성자
 	public MemberDTO(int no, String id, String pw, String name, int age, String email, String tel, String zipcode,
-			String roadAddr, String jibunAddr, String detailAddr) {
+			String roadAddr, String jibunAddr, String detailAddr,String regDate) {
 		super();
 		this.no = no;
 		this.id = id;
@@ -42,6 +42,7 @@ public class MemberDTO {
 		this.roadAddr = roadAddr;
 		this.jibunAddr = jibunAddr;
 		this.detailAddr = detailAddr;
+		this.regDate = regDate;
 	}
 
 
@@ -223,6 +224,33 @@ public class MemberDTO {
 
 
 
+
+	public String getRegDate() {
+		return regDate;
+	}
+
+
+
+
+
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
