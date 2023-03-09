@@ -12,7 +12,7 @@
 
 
 	<!--HEADER : START-->
-	<%@ include file="./inc/header.jsp" %>
+	<%@ include file="./container-flude-inc/header.jsp" %>
 	<!--/.HEADER : END-->
 	
 
@@ -51,7 +51,7 @@
 	<!--/.CONTENT WRAP : END-->
 	
 	<!--FOOTER :START-->
-		<%@ include file="./inc/footer.jsp" %>
+		<%@ include file="./container-flude-inc/footer.jsp" %>
 	<!--/.FOOTER : END-->    
 	
 </div>

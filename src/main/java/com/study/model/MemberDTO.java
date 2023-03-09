@@ -1,5 +1,7 @@
 package com.study.model;
 
+import java.util.Date;
+
 public class MemberDTO {
 	private int no;
 	private String id;
@@ -15,7 +17,7 @@ public class MemberDTO {
 	private String jibunAddr;
 	private String detailAddr;
 
-	private String regDate;
+	private Date regDate;
 	
 	
 	
@@ -29,7 +31,7 @@ public class MemberDTO {
 
 	// 전체 생성자
 	public MemberDTO(int no, String id, String pw, String name, int age, String email, String tel, String zipcode,
-			String roadAddr, String jibunAddr, String detailAddr,String regDate) {
+			String roadAddr, String jibunAddr, String detailAddr,Date regDate) {
 		super();
 		this.no = no;
 		this.id = id;
@@ -225,7 +227,7 @@ public class MemberDTO {
 
 
 
-	public String getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
 
@@ -233,7 +235,7 @@ public class MemberDTO {
 
 
 
-	public void setRegDate(String regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 

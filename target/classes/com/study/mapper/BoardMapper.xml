@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.study.mapper.BoardMapper">
+
+	<!-- 게시글 등록 -->
+	<insert id="subjectInsert">
+		insert into TR_BOARD(subject,writer,content,regDate,hit)
+		values(#{subject},#{writer},#{content},#{regDate},#{hit})
+	</insert>
+	
+	
+	<!-- 전체 게시글 가져오기 -->
+  	<select id="getAllSubjectList" parameterType="boardDTO" resultType="boardDTO">
+  		select * from TR_BOARD
+  	</select>
+
+
+
+
+
+<!-- 	
+	게시글 등록날짜 가져오기
+	<select id="getSubjectRegDate" parameterType="boardDTO" resultType="String">
+		SELECT DATE_FORMAT(regDate, '%y.%m.%d') AS regDate
+		FROM TR_BOARD;
+	</select>
+	 -->
+	
+	
+	
+
+</mapper>

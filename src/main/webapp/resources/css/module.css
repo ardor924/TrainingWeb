@@ -67,10 +67,3 @@ img { max-width: 100%; }
 }
 
 
-/* 버튼 */
-
-.btn-wrap-position-center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

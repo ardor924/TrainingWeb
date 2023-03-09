@@ -2,10 +2,13 @@
 <%@ include file="../inc/module.jsp" %>
 
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <link rel="stylesheet" type="text/css" href="${ctx}/resources/css/memberlist.css">
 
 <!--HEADER : START-->
-<%@ include file="../inc/header.jsp" %>
+<%@ include file="../container-flude-inc/header.jsp" %>
 <!--/.HEADER : END-->
 
 <!--CONTENT WRAP : START-->
@@ -46,7 +49,9 @@
 								<td>${li.tel}</td>
 								<td>${li.email}</td>
 								<td>${li.jibunAddr}/${li.detailAddr}</td>
-								<td>${li.regDate}</td>
+								<td>
+									<fmt:formatDate value="${li.regDate}" pattern="yyyy.MM.dd" type="date"/>
+								</td>
 							</c:forEach>
 							</tbody>
 							<tr>

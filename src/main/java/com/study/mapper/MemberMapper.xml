@@ -28,9 +28,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 회원1명의 정보 가져오기 -->
 	<select id="getMemberInfo" parameterType="memberDTO" resultType="memberDTO">
-		SELECT 8 from TR_MEMBER where id=#{id}
+		SELECT * from TR_MEMBER where id=#{id}
 	</select>
 	
+	
+	
+	
+	
+
 	<!-- 회원 등록날짜 가져오기 -->
 	<select id="getMemberRegDate" parameterType="memberDTO" resultType="String">
 		SELECT DATE_FORMAT(regDate, '%y.%m.%d') AS regDate

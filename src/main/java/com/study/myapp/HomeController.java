@@ -45,12 +45,13 @@ public class HomeController {
 	@RequestMapping("main.do")
 	public String mainPage(Model model) {
 		
+		//---------------- 임시작업 - 이미지출력 START--------//
 		model.addAttribute("banner1", "image/banner1.jpg");
 		model.addAttribute("banner2", "image/banner2.jpg");
 		model.addAttribute("banner3", "image/banner3.jpg");
-		
 		//임시프사		
 		model.addAttribute("memberimage", "image/unknown.png");
+		//---------------- 임시작업 - 이미지출력 END--------//
 
 		return "main_page";
 	}

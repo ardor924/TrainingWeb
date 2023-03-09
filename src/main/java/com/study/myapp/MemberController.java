@@ -1,6 +1,5 @@
 package com.study.myapp;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -31,9 +30,17 @@ public class MemberController {
 	public String memberInsert(MemberDTO memberDTO) {
 		
 		
+		Date regDate = new Date();
+		
+		
+		/*
+		 * 	[DTO에서 regDate가 String 타입의 SimpleDateFormat를 사용할때 - DB에서 형태 변경해 가져오는 용도]
 		Date nowDate = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd hh:mm");
-		String regDate = sdf.format(nowDate);		
+		 * SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd hh:mm"); String
+		 * regDate = sdf.format(nowDate);
+		 */
+		
+		
 		memberDTO.setRegDate(regDate);
 		
 		memberMapper.memberRegister(memberDTO);
@@ -69,7 +76,7 @@ public class MemberController {
 			
 			String id = mDto.getId();
 			String name = mDto.getName();
-
+			 
 			
 			
 			session.setAttribute("isLogin", "yes"); //로그인 성공 여부 YES
@@ -117,6 +124,8 @@ public class MemberController {
 		List<MemberDTO> mList = memberMapper.memberList(memberDTO);
 		
 		model.addAttribute("mList", mList);
+		
+		System.out.println("mList : "+mList);
 		
 		
 		return "member/list_page";

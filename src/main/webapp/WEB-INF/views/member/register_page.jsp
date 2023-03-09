@@ -12,7 +12,7 @@
 <script type="text/javascript" src="${ctx}/resources/js/kakao_addr_API.js"></script>
 
 <!--HEADER : START-->
-<%@ include file="../inc/header.jsp" %>
+<%@ include file="../container-flude-inc/header.jsp" %>
 <!--/.HEADER : END-->
 
 <!--CONTENT WRAP : START-->

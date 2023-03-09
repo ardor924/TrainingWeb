@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+/* 버튼 */
+
+.btn-wrap-position-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-marginLR{
+    margin-left: 5px;
+    margin-right: 5px;
+}

@@ -15,6 +15,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <!-- 2 taglib-->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!-- 3 contextPath-->
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!-- 4 부트스트랩 -->
@@ -28,3 +29,6 @@
 <!-- 6.CSS -->
 <link rel="stylesheet" type="text/css" href="${ctx}/resources/css/font.css"> 
 <link rel="stylesheet" type="text/css" href="${ctx}/resources/css/module.css"> 
+
+
+

@@ -8,7 +8,7 @@
 <script type="text/javascript" src="${ctx}/resources/js/register_valid(No Kakao API ver).js"></script>
 
 <!--HEADER : START-->
-<%@ include file="../inc/header.jsp" %>
+<%@ include file="../container-flude-inc/header.jsp" %>
 <!--/.HEADER : END-->
 
 <!--CONTENT WRAP : START-->

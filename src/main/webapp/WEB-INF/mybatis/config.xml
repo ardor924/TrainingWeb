@@ -6,5 +6,6 @@
 <configuration>
   <typeAliases>
   	<typeAlias type="com.study.model.MemberDTO" alias="memberDTO"/>
+  	<typeAlias type="com.study.model.BoardDTO" alias="boardDTO"/>
   </typeAliases>
 </configuration>
