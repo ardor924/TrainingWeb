@@ -124,7 +124,21 @@
                                     <c:forEach var="li" items="${bList}">								
                                     <tr>
                                         <td colspan="1">${li.bno}</td>
-                                        <td colspan="1">${li.subject}</td>
+                                        <td colspan="1">
+
+											<form id="viewFrm+${li.bno}" action="subjectView.do" method="post">
+												<input name="<portlet:namespace/>bno" type="hidden" value="${li.bno}"/>
+												<input name="<portlet:namespace/>currentPage" type="hidden" value="${bp.currentPage}"/>
+												<input name="<portlet:namespace/>cntPerPage" type="hidden" value="${bp.cntPerPage}"/>
+												<input name="<portlet:namespace/>ORDER" type="hidden" value="${ORDER}"/>
+												<input name="<portlet:namespace/>option" type="hidden" value="${option}"/>
+												<input name="<portlet:namespace/>keyword" type="hidden" value="${keyword}"/>
+												<input name="<portlet:namespace/>userName" type="hidden" value="${userName}"/>
+												<a href="#" onclick="document.getElementById('viewFrm+${li.bno}').submit()">${li.subject}</a>
+											</form>
+
+										 
+										</td>
                                         <td colspan="1">${li.writer}</td>				
                                         <td colspan="1">
                                         	<fmt:formatDate value="${li.regDate}" pattern="yyyy.MM.dd" type="date"/>

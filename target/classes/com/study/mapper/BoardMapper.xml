@@ -21,7 +21,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   		select * from TR_BOARD
   	</select>
 
-
+	
+	<!-- 게시글 1개 가져오기(subject View) -->
+  	<select id="getSubject" parameterType="boardDTO" resultType="boardDTO">
+  		select * from TR_BOARD where bno = #{bno}
+  	</select>
 
 
 

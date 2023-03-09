@@ -22,7 +22,8 @@ public interface BoardMapper {
 	public String getSubjectRegDate(BoardDTO boardDTO);
 	
 	
-	
+	// 게시글 가져오기
+	public BoardDTO getSubject(BoardDTO boardDTO);
 	
 	
 	

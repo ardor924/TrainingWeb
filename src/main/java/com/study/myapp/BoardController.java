@@ -84,6 +84,17 @@ public class BoardController {
 	}
 	
 	
+	// 게시글 보기
+	@RequestMapping("subjectView.do")
+	public String subjectView(Model model,BoardDTO boardDTO) {
+		
+		BoardDTO tbl = boardMapper.getSubject(boardDTO);
+		
+		
+		model.addAttribute("tbl", tbl);
+		
+		return "board/view_subject"; 
+	}
 	
 	
 }
