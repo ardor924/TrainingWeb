@@ -35,13 +35,14 @@
                 <!-- <div class="article-wrap mt-1"> -->
                 <div class="article-wrap  mt-1 pb-0 ps-0 pe-0">     
 
-                    <div class="article-content-wrap"> <!-- border 없는 버전 변경가능 -->
+                    <div class="article-content-wrap-borderless"> <!-- border 없는 버전 변경가능 -->
                     <!-- -------------------------------- 메인컨텐츠 - 이곳을 변경 : START ---------------------------------------- -->    
                     <!-- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  -->
                     
 <div class="container p-5">
-		<div class="d-flex justify-content-end">
-				<form id="goBoardListFrm" action="#" method="post">
+		<div class="d-flex justify-content-between">
+			<h4>웹개발 > Java-Spring</h4>
+				<form id="goBoardListFrm" action="webDevBoard_1.do" method="post">
 					<input name="<portlet:namespace/>i" type="hidden" value="${currentPage}"/>
 					<input name="<portlet:namespace/>cntPerPage" type="hidden" value="${cntPerPage}"/>
 					<input name="<portlet:namespace/>ORDER" type="hidden" value="${ORDER}"/>
@@ -76,7 +77,7 @@
 			</div>
 		<hr>
 		<div>
-			<section>${tbl.contents}</section><!-- 큰 이미지 화면 처리방법 구상할것 -->
+			<section>${tbl.content}</section><!-- 큰 이미지 화면 처리방법 구상할것 -->
 		</div>
 
 		<hr>

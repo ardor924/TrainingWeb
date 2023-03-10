@@ -13,14 +13,16 @@ public class BoardDTO {
 	private int hit;
 	
 	
+	// 페이징
+	private int initPage; // 시작 페이지(1 또는 0)
+	private int cntPerPage; // 한 페이지당 게시글 수(10개)
 	
 
 	public BoardDTO() {}
 
 
-
-
-	public BoardDTO(int bno, String subject, String writer, String content, Date regDate, int hit) {
+	public BoardDTO(int bno, String subject, String writer, String content, Date regDate, int hit, int initPage,
+			int cntPerPage) {
 		super();
 		this.bno = bno;
 		this.subject = subject;
@@ -28,9 +30,9 @@ public class BoardDTO {
 		this.content = content;
 		this.regDate = regDate;
 		this.hit = hit;
+		this.initPage = initPage;
+		this.cntPerPage = cntPerPage;
 	}
-
-
 
 
 	public int getBno() {
@@ -38,13 +40,9 @@ public class BoardDTO {
 	}
 
 
-
-
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
-
-
 
 
 	public String getSubject() {
@@ -52,13 +50,9 @@ public class BoardDTO {
 	}
 
 
-
-
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-
-
 
 
 	public String getWriter() {
@@ -66,13 +60,9 @@ public class BoardDTO {
 	}
 
 
-
-
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-
-
 
 
 	public String getContent() {
@@ -80,13 +70,9 @@ public class BoardDTO {
 	}
 
 
-
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-
 
 
 	public Date getRegDate() {
@@ -94,13 +80,9 @@ public class BoardDTO {
 	}
 
 
-
-
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
-
-
 
 
 	public int getHit() {
@@ -108,12 +90,33 @@ public class BoardDTO {
 	}
 
 
-
-
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
 
+
+	public int getInitPage() {
+		return initPage;
+	}
+
+
+	public void setInitPage(int initPage) {
+		this.initPage = initPage;
+	}
+
+
+	public int getCntPerPage() {
+		return cntPerPage;
+	}
+
+
+	public void setCntPerPage(int cntPerPage) {
+		this.cntPerPage = cntPerPage;
+	}
+
+
+	
+	
 	
 	
 	

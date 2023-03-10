@@ -17,6 +17,10 @@ public interface BoardMapper {
 	// 게시글 전체 가져오기
 	public List<BoardDTO> getAllSubjectList(BoardDTO boardDTO);
 	
+	// 게시글 목록 가져오기
+	public List<BoardDTO> getSubjectList(BoardDTO boardDTO);
+	
+	
 	
 	// 게시글 작성일
 	public String getSubjectRegDate(BoardDTO boardDTO);
@@ -25,7 +29,12 @@ public interface BoardMapper {
 	// 게시글 가져오기
 	public BoardDTO getSubject(BoardDTO boardDTO);
 	
+	// 전체 게시글 개수
+	public int totalCnt(BoardDTO boardDTO);
 	
+	
+	// 조회수증가
+	public int hitAdd(BoardDTO boardDTO);
 	
 	
 }

@@ -45,7 +45,7 @@
                             </div>
                         
                             <div class="articl-btn">		
-                                <a href="#" class="btn btn-outline-dark">
+                                <a href="webDevBoard_1.do" class="btn btn-outline-dark">
                                    목록
                                 </a>
                             </div>

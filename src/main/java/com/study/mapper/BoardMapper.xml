@@ -15,18 +15,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(#{subject},#{writer},#{content},#{regDate},#{hit})
 	</insert>
 	
-	
-	<!-- 전체 게시글 가져오기 -->
+<!-- 	
+	전체 게시글 가져오기
   	<select id="getAllSubjectList" parameterType="boardDTO" resultType="boardDTO">
   		select * from TR_BOARD
   	</select>
 
+ -->
+ 
+	<!-- 게시글 가져오기(페이징계산 / 내림차순) -->
+	<select id="getSubjectList" resultType="boardDTO">
+		select * from TR_BOARD
+		order by bno ASC limit #{initPage}, #{cntPerPage} <!-- DESC: 내림차순 ASC: 오름차순 -->
+	</select>	
+	
 	
 	<!-- 게시글 1개 가져오기(subject View) -->
   	<select id="getSubject" parameterType="boardDTO" resultType="boardDTO">
   		select * from TR_BOARD where bno = #{bno}
   	</select>
 
+
+
+
+	<!-- 게시글 전체 갯수 가져오기 -->
+	<select id="totalCnt" resultType="Integer">
+		select count(*) total from TR_BOARD
+	</select>
+
+
+
+	<!-- 조회수증가 -->
+	
+	<update id="hitAdd" parameterType="Integer">
+		update TR_BOARD set hit = hit + 1 where bno=#{bno}
+	</update>
 
 
 <!-- 	

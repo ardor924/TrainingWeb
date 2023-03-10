@@ -127,13 +127,10 @@
                                         <td colspan="1">
 
 											<form id="viewFrm+${li.bno}" action="subjectView.do" method="post">
-												<input name="<portlet:namespace/>bno" type="hidden" value="${li.bno}"/>
-												<input name="<portlet:namespace/>currentPage" type="hidden" value="${bp.currentPage}"/>
-												<input name="<portlet:namespace/>cntPerPage" type="hidden" value="${bp.cntPerPage}"/>
-												<input name="<portlet:namespace/>ORDER" type="hidden" value="${ORDER}"/>
-												<input name="<portlet:namespace/>option" type="hidden" value="${option}"/>
-												<input name="<portlet:namespace/>keyword" type="hidden" value="${keyword}"/>
-												<input name="<portlet:namespace/>userName" type="hidden" value="${userName}"/>
+												<input name="bno" type="hidden" value="${li.bno}"/>
+												<input name="currentPage" type="hidden" value="${bp.currentPage}"/>
+												<input name="cntPerPage" type="hidden" value="${bp.cntPerPage}"/>
+												<input name="memberName" type="hidden" value="${memberName}"/>
 												<a href="#" onclick="document.getElementById('viewFrm+${li.bno}').submit()">${li.subject}</a>
 											</form>
 
@@ -144,15 +141,84 @@
                                         	<fmt:formatDate value="${li.regDate}" pattern="yyyy.MM.dd" type="date"/>
                                         </td>
                                         <td colspan="1">${li.hit}</td>
-                                    </tr>                                                                          
+                                    </tr>       
+                                    	
                                     </c:forEach>
                                		</c:if>
                                		
 
                                 </tbody>
                             </table>
+                            
+                            
+                            
+                            
+                            
                         </div>
                         <!-- 게시판 : END--> 
+                        
+                        <div class="d-flex justify-content-between">
+
+	<div class="d-flex justify-content-end">		
+		<form id="searchForm" method="post" action="${GoList}">
+			<input type="hidden" value="${ORDER}" name="<portlet:namespace/>ORDER">
+			<input type="hidden" value="${keyword}" name="<portlet:namespace/>keyword">
+			<input type="hidden" value="${option}" name="<portlet:namespace/>option">
+			<div class="d-flex justify-content-end">		
+				 <select id='cntPerPage' class="form-select me-2" onchange="changeCntPerPage()" name="<portlet:namespace/>cntPerPage" style="width:100px">
+					<option value="10" ${bp.cntPerPage eq 10 ? 'selected' : ''}>10개씩</option>
+					<option value="15" ${bp.cntPerPage eq 15 ? 'selected' : ''}>15개씩</option>
+					<option value="20" ${bp.cntPerPage eq 20 ? 'selected' : ''}>20개씩</option>
+					<option value="30" ${bp.cntPerPage eq 30 ? 'selected' : ''}>30개씩</option>
+				 </select>
+			   <button type="submit" class="btn btn-dark rounded-0 rounded-end" style="width:50px;  color:white" >
+			      <i class="xi-filter"></i>
+			   </button> 
+			</div>
+		</form>
+	</div>		
+	<div class="text-center">
+		<a class="btn btn-outline-danger" href='dummy.do'>더미게시글생성</a>
+		<a class="btn btn-outline-dark" href='${GoList}'>목록</a>
+		<c:if test="${userName == 'guest'}">
+		<button class="btn btn-outline-dark" onclick="javascript:alert('글을 쓰기 위해서는 로그인이 필요합니다!')">글쓰기</button>
+		</c:if>
+		<c:if test="${userName != 'guest'}">
+		<a class="btn btn-outline-dark" href='writeBoardPage.do'>글쓰기</a>
+		</c:if>
+	</div>
+</div>
+		
+<!-- 페이지 네비게이션(블럭) -->
+
+	<ul class="pagination justify-content-center my-5">
+	
+	<c:if test="${bp.prevPage > 0}">
+	  <li class="page-item"><!--이전 페이징 블럭이 0이하 일 경우, 이전 버튼 비활성화-->
+	     <a class="page-link" href="webDevBoard_1.do?i=${bp.prevPage}&cntPerPage=${bp.cntPerPage}"><i class="fa-solid fa-angle-left"></i>이전</a>
+	  </li>
+	</c:if>
+	  
+	  <c:forEach var="i" begin="${bp.blockStart}" end="${bp.blockEnd}">	  
+	     <li class="page-item ${bp.currentPage == i ? 'active':''}"><!-- 현재 페이지가 i일 경우 active(현재위치표시역할) -->
+	        <a class="page-link" href="webDevBoard_1.do?i=${i}&cntPerPage=${bp.cntPerPage}">${i}</a><!-- i로 페이지 이동 -->
+	     </li>
+	  </c:forEach>
+	  
+	  <c:if test="${bp.blockEnd < bp.totalPage}">
+	  <li class="page-item"><!-- 전체게시글 수가 페이징 블럭의 끝번호 보다 작을 경우 disabled(버튼 비활성화) -->
+	     <a class="page-link" href="webDevBoard_1.do?i=${bp.nextPage}&cntPerPage=${bp.cntPerPage}">다음<span></span><i class="fa-solid fa-angle-right"></i></a>
+	  </li>
+	  </c:if>
+	</ul>	
+
+
+
+</div>
+                        
+                        
+                        
+                        
                     
                     <!-- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑  -->
                     <!-- --------------------------------./ 메인컨텐츠 - 이곳을 변경 : END ---------------------------------------- -->  
