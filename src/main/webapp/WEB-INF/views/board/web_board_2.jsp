@@ -50,14 +50,14 @@
                             
                                 <!-- 검색창 : START -->
                                 <div class="article-search">		
-                                    <form id="search-form" class="search-form" method="post" action="webDevBoard_1.do">
+                                    <form class="search-form" method="post" action="#">
                                       <div class="search-form-wrap">
-                                        <input type="hidden" value="${searchType}" name="searchType">
+                                        <input type="hidden" value="on" name="earchOn">
                                         <input type="hidden" value="${bp.cntPerPage}" name="cntPerPage">
-                                        <input type="hidden" value="${orderBy}" name="orderBy">
+                                        <input type="hidden" value="${ORDER}" name="ORDER">
                                     
                                         <!-- 검색 -->
-                                        <select class="form-select" id="search-type" onchange="changeSearchType()">
+                                        <select id="search-option" class="form-select"  onchange="changeOption()" name="option">
                                             <option id="select_none" value="keyword_X" ${option eq 'keyword_X' ? 'selected' : ''}>선택</option>
                                             <option value="keyword_S" ${option eq 'keyword_S' ? 'selected' : ''}>제목</option>
                                             <option value="keyword_C" ${option eq 'keyword_C' ? 'selected' : ''}>내용</option>
@@ -65,10 +65,10 @@
                                         </select>
                                     
                                          <!-- 검색창 -->
-                                        <input id="search-keyword" value="${keyWord}" class="form-control rounded-0 rounded-start" type="text" name="keyWord" placeholder="검색어를 입력 하세요">
+                                        <input id="search-keyword" value="${keyword}" class="form-control rounded-0 rounded-start" type="text" name="keyword" placeholder="검색어를 입력 하세요">
                                     
                                          <!-- 검색버튼 -->
-                                        <button id="btn-search" class="btn btn-primary btn-lg rounded-0 rounded-end">
+                                        <button id="btn-search" class="btn btn-primary btn-lg rounded-0 rounded-end" onclick="javascript:selectChk()">
                                             <i class="fa fa-search"></i>
                                         </button> 
                                       </div>
@@ -84,7 +84,7 @@
                                 
                                     <thead>
 									<!--기본정렬 : 기본 내림차순 일때 -->
-                                      <c:if test="${orderBy == null or orderBy == 'bnoDown' or orderBy != 'bnoUp'}"> 
+                                      <c:if test="${orderBy == null or orderBy == 'bnoDown'}"> 
                                       <th><!-- 클릭시 오름차순 으로-->
                                         <form id="orderBy-bnoUp" class="board-orderform-wrap" action="webDevBoard_1.do">
                                             <input id="option" name="orderBy" type="hidden" value="bnoUp"/>
@@ -95,7 +95,7 @@
                                       </c:if>
                                       
                                       <!-- 정렬 : 오름차순 일때 -->
-                                      <c:if test="${orderBy eq 'bnoUp'}">
+                                      <c:if test="${orderBy == 'bnoUp'}">
                                       <th><!-- 클릭시 내림차순 으로-->
                                         <form id="orderBy-bnoDown" class="board-orderform-wrap" action="webDevBoard_1.do">
                                             <input id="option" name="orderBy" type="hidden" value="bnoDown"/>
@@ -111,7 +111,7 @@
                                         <div>작성자</div>
                                       </th>
                                       <!--기본정렬 : 기본 내림차순 일때 -->
-                                      <c:if test="${orderBy == null or orderBy == 'regDateDown' or orderBy != 'regDateUp'}">
+                                      <c:if test="${orderBy == null or orderBy == 'regDateDown'}">
                                       <th>
                                         <form id="orderBy-regDateUp" class="board-orderform-wrap" action="webDevBoard_1.do">
                                             <input id="option" name="orderBy" type="hidden" value="regDateUp"/>
@@ -121,7 +121,7 @@
                                       </th>
                                       </c:if>
                                       <!--정렬 : 오름차순 일때 -->
-                                      <c:if test="${orderBy eq 'regDateUp'}">
+                                      <c:if test="${orderBy == 'regDateUp'}">
                                       <th>
                                         <form id="orderBy-regDateDown" class="board-orderform-wrap" action="webDevBoard_1.do">
                                             <input id="option" name="orderBy" type="hidden" value="regDateDown"/>
@@ -131,7 +131,7 @@
                                       </th>
                                       </c:if>
                                       <!--기본정렬 : 기본 내림차순 일때 -->
-                                      <c:if test="${orderBy == null or orderBy == 'hitDown' or orderBy != 'hitUp'}">
+                                      <c:if test="${orderBy == null or orderBy == 'hitDown'}">
                                       <th>
                                         <form id="orderBy-hitUp" class="board-orderform-wrap" action="webDevBoard_1.do">
                                             <input id="option" name="orderBy" type="hidden" value="hitUp"/>
@@ -141,7 +141,7 @@
                                       </th>
                                       </c:if>
                                       <!--정렬 : 오름차순 일때 -->                                      
-                                      <c:if test="${orderBy eq 'hitUp'}">
+                                      <c:if test="${orderBy == 'hitUp'}">
                                       <th>
                                         <form id="orderBy-hitDown" class="board-orderform-wrap" action="webDevBoard_1.do">
                                             <input id="option" name="orderBy" type="hidden" value="hitDown"/>
@@ -206,14 +206,13 @@
                                 
                                 <div class="article-bottom-options-wrap">
                                     <!-- 검색갯수 -->
-                                    <form id="cntChangeForm" method="post" action="webDevBoard_1.do">
+                                    <form id="searchForm" method="post" action="webDevBoard_1.do">
 		                                <select id='cntPerPage' class="form-select me-2" onchange="changeCntPerPage()" name="cntPerPage" style="width:100px">
 		                                   <option value="10" ${bp.cntPerPage eq 10 ? 'selected' : ''}>10개씩</option>
 		                                   <option value="15" ${bp.cntPerPage eq 15 ? 'selected' : ''}>15개씩</option>
 		                                   <option value="20" ${bp.cntPerPage eq 20 ? 'selected' : ''}>20개씩</option>
 		                                   <option value="30" ${bp.cntPerPage eq 30 ? 'selected' : ''}>30개씩</option>
 		                                </select>
-		                                <input type="hidden" id="cntChangeForm-hidden-input" value="">
                                     </form>
                                     <!-- 목록/글쓰기 버튼 -->
                                     <div class="text-center">
@@ -276,78 +275,6 @@
 	</div>
 	</div>
 </body>
-
-
-
-
-
-<script type="text/javascript">
-
-
-/************* 검색 ****************/
-
-
-function changeSearchType() {
-	var getSearchType = document.getElementById("search-type");
-	
-	var setSearchType = getSearchType.value;
-	
-	
-	console.log("setSearchType : "+setSearchType)
-}
-
-
-
-
-
-
-var searchForm = $('#search-form');
-
-$('#btn-search').on('click', function(e){
-   if(!searchForm.find("input[name='keyword']").val()){
-      alert("키워드를 입력하세요!!");
-      $('#keyword').focus();
-      return false;
-   }
-   
-   var is = $('input[id=cntChangeForm-hidden-input]').value
-   
-   if(is != "keyword_X"){
-	   alert("검색타입을 입력하세요!!");
-   }
-   
-   
-   
-   
-   searchForm.submit();
-});
-
-
-
-
-
-
-/* 조회 게시판 갯수 */
-function changeCntPerPage() {
-	var getCntPerPage = document.getElementById("cntPerPage");
-	
-	var setCntPerPage = getCntPerPage.value;
-	
-	$('input[id=cntChangeForm-hidden-input]').attr('value',setCntPerPage);
-	
-	var cntChangeForm = document.getElementById("cntChangeForm");
-	cntChangeForm.submit();
-	
-	
-/* 	var getlog = document.getElementById("cntChangeForm-hidden-input");
-	
-	console.log(getlog); */
-	
-}
-
-
-
-</script>
 
 
 

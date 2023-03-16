@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+
+/* 검색갯수 / 글쓰기 / 목록 */
+.article-bottom-options-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 페이징블락 */
+.pagingBlock{
+    justify-content: center;
+    margin-left: 15px;
+}

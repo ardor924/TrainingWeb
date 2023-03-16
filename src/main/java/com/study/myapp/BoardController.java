@@ -3,6 +3,8 @@ package com.study.myapp;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,12 +50,15 @@ public class BoardController {
 	// 게시글 불러오기_1
 	@RequestMapping("webDevBoard_1.do")
 	public String webDevBoard_1(Model model, 
+			HttpServletRequest request,
 			@RequestParam(defaultValue = "1") int i,
 			@RequestParam(defaultValue = "10") int cntPerPage,
+			/* @RequestParam(name = "keyword") String keyWord, */
 			@ModelAttribute("boardDTO") BoardDTO boardDTO) {
 		
 		
-
+		String keyWord = request.getParameter("keyWord");
+		System.out.println("keyWord : "+keyWord);
 		
 		
 		//---------------- 임시작업 - 이미지출력 START--------//
@@ -83,6 +88,13 @@ public class BoardController {
 		model.addAttribute("bList", bList);
 		
 		System.out.println("size : "+bList.size());
+		
+		
+		// orederBy
+		String orderBy = boardDTO.getOrderBy();
+		model.addAttribute("orderBy", orderBy);
+		
+		
 		
 		return "board/web_board_1";
 	}

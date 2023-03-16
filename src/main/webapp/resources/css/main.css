@@ -259,6 +259,8 @@
 .board-orderform-wrap{  
     display: flex;
     align-items: center;
+	margin: 0;
+	padding: 0;
 
 }
 
@@ -296,6 +298,8 @@
 .span-gray{
     color: gray;
 }
+
+
 
 
 /* 푸터 */

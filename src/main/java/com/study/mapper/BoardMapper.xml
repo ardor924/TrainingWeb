@@ -9,24 +9,66 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.study.mapper.BoardMapper">
 
+
+	<!--검색 기능: like concat(,,)-->
+	<sql id = "criteria">
+		<!--subject 제목검색-->
+	  	<if test="searchType=='S'.toString()">
+	  		<!-- where subject like '%${keyWord}%' -->
+	  		where subject like CONCAT('%',#{keyWord},'%') <!--concat: 문자열 합치기-->
+	  		<!-- where subject like '%'||#{keyWord}||'%' -->
+	  	</if>
+	  	<!--contents 내용-->
+	  	<if test="searchType=='C'.toString()">
+	  		<!-- where contents like '%${keyWord}%' -->
+	  		where contents like CONCAT('%',#{keyWord},'%')
+	  	</if>
+	  	<!--작성자 검색-->
+	  	<if test="searchType=='W'.toString()">
+	  		<!-- where writer like '%${keyWord}%s' -->
+	  		where writer like CONCAT('%',#{keyWord},'%')
+	  	</if>
+	</sql>	
+
+
+	<sql id="ordering">
+		<if test="orderBy == null">
+			order by bno DESC limit #{initPage}, #{cntPerPage} 
+		</if>
+		<if test="orderBy == 'bnoUp'">
+			order by bno ASC limit #{initPage}, #{cntPerPage} 
+		</if>
+		<if test="orderBy == 'bnoDown'">
+			order by bno DESC limit #{initPage}, #{cntPerPage} 
+		</if>
+		<if test="orderBy == 'regDateUp'">
+			order by regDate ASC limit #{initPage}, #{cntPerPage} 
+		</if>
+		<if test="orderBy == 'regDateDown'">
+			order by regDate DESC limit #{initPage}, #{cntPerPage} 
+		</if>
+		<if test="orderBy == 'hitUp'">
+			order by hit ASC limit #{initPage}, #{cntPerPage} 
+		</if>
+		<if test="orderBy == 'hitDown'">
+			order by hit DESC limit #{initPage}, #{cntPerPage} 
+		</if>
+	</sql>
+
+
+
+
 	<!-- 게시글 등록 -->
 	<insert id="subjectInsert">
 		insert into TR_BOARD(subject,writer,content,regDate,hit)
 		values(#{subject},#{writer},#{content},#{regDate},#{hit})
 	</insert>
 	
-<!-- 	
-	전체 게시글 가져오기
-  	<select id="getAllSubjectList" parameterType="boardDTO" resultType="boardDTO">
-  		select * from TR_BOARD
-  	</select>
-
- -->
  
-	<!-- 게시글 가져오기(페이징계산 / 내림차순) -->
+	<!-- 게시글 가져오기 -  기본번호순 (페이징계산 / 내림차순) -->
 	<select id="getSubjectList" resultType="boardDTO">
 		select * from TR_BOARD
-		order by bno ASC limit #{initPage}, #{cntPerPage} <!-- DESC: 내림차순 ASC: 오름차순 -->
+		<include refid="ordering"></include>
 	</select>	
 	
 	
