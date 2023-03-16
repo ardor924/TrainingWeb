@@ -33,6 +33,10 @@ public interface BoardMapper {
 	public int totalCnt(BoardDTO boardDTO);
 	
 	
+	// 게시글 삭제
+	public int deleteSubject(BoardDTO boardDTO);
+	
+	
 	// 조회수증가
 	public int hitAdd(BoardDTO boardDTO);
 	

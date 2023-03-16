@@ -20,4 +20,10 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	
+	@Override
+	public int deleteSubject(BoardDTO boardDTO) {
+		return boardMapper.deleteSubject(boardDTO);
+	}
+	
+	
 }

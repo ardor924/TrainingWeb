@@ -292,8 +292,12 @@ function changeSearchType() {
 	
 	var setSearchType = getSearchType.value;
 	
-	
+	$('input[name=searchType]').attr('value',setSearchType);
 	console.log("setSearchType : "+setSearchType)
+	
+
+	
+	
 }
 
 
@@ -304,15 +308,16 @@ function changeSearchType() {
 var searchForm = $('#search-form');
 
 $('#btn-search').on('click', function(e){
-   if(!searchForm.find("input[name='keyword']").val()){
+   if(!searchForm.find("input[name='keyWord']").val()){
       alert("키워드를 입력하세요!!");
       $('#keyword').focus();
       return false;
    }
    
    var is = $('input[id=cntChangeForm-hidden-input]').value
+	   console.log(is)
    
-   if(is != "keyword_X"){
+   if(is == "keyword_X"){
 	   alert("검색타입을 입력하세요!!");
    }
    

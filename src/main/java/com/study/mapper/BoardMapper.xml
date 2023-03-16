@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<!--검색 기능: like concat(,,)-->
-	<sql id = "criteria">
+	<sql id = "searchType">
 		<!--subject 제목검색-->
 	  	<if test="searchType=='S'.toString()">
 	  		<!-- where subject like '%${keyWord}%' -->
@@ -68,7 +68,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 게시글 가져오기 -  기본번호순 (페이징계산 / 내림차순) -->
 	<select id="getSubjectList" resultType="boardDTO">
 		select * from TR_BOARD
-		<include refid="ordering"></include>
+		<include refid="ordering">
+			<include refid="searchType"></include>
+		</include>
 	</select>	
 	
 	
@@ -85,6 +87,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) total from TR_BOARD
 	</select>
 
+
+	<!-- 게시글 번호로 삭제 -->
+	<delete id="deleteSubject" parameterType="boardDTO">
+		delete from TR_BOARD where bno = #{bno}
+	</delete>
 
 
 	<!-- 조회수증가 -->

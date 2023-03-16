@@ -109,7 +109,11 @@
 
 
 		<hr>
-
+					<div class="d-flex justify-content-end">
+				<button type="button" class="btn btn-success m-1" onclick="updateSubject()">글수정</button>
+				<button type="button" class="btn btn-danger m-1" onclick="delSubject()">글삭제</button>
+			</div>
+			
 		<!-- 작성자 본인인경우 -->
 		<c:if test="${tbl_mine}">
 			<div class="d-flex justify-content-end">
@@ -117,19 +121,10 @@
 				<button type="button" class="btn btn-danger m-1" onclick="delSubject()">글삭제</button>
 			</div>
 		</c:if>		
-		<!-- 테스트용 -->
-
-			<div class="d-flex justify-content-end">
-				<button type="button" class="btn btn-success m-1" onclick="updateSubject()">글수정</button>
-			</div>
-
 		</form>
 		<!-- 글삭제폼 -->
-		<form id="delFrm" action="subjectDelete.do" method="post">
-			<input type="hidden" name="bno" value="${tbl.bno}">
-			<div>
-				<button type="button" class="btn btn-danger m-1" onclick="delSubject()">글삭제</button>
-			</div>
+		<form id="delFrm" action="${SubjectDeleteURL}" method="post">
+			<input type="hidden" name="<portlet:namespace/>bno" value="${tbl.bno}">
 		</form>
 </div>
 </div>
@@ -145,29 +140,12 @@
                 <!-- 컨텐츠 : END -->
                 </section>
                 <!-- 푸터 -->
-                <%@ include file="../inc/bottom.jsp"%>
+                <%@ include file="../inc/bottom.jsp" %>            
 			</div>
 		</div>
 	</div>
 	</div>
 </body>
-
-
-<script type="text/javascript">
-
-var delFrm = document.getElementById("delFrm");
-
-function delSubject(){
-	
-	if(confirm("삭제하시겠습니까?")){
-		alert("정상적으로 삭제되었습니다.");
-		delFrm.submit();
-		
-	}
-}
-</script>
-
-
 
 <!-- ckEditor4 풀버전 -->
 <script src="${ctx}/resources/js/ckeditor/ckeditor.js"></script>

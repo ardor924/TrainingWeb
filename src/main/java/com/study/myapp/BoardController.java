@@ -58,7 +58,9 @@ public class BoardController {
 		
 		
 		String keyWord = request.getParameter("keyWord");
+		String searchType = request.getParameter("searchType");
 		System.out.println("keyWord : "+keyWord);
+		System.out.println("searchType : "+searchType);
 		
 		
 		//---------------- 임시작업 - 이미지출력 START--------//
@@ -139,6 +141,17 @@ public class BoardController {
 		
 		return "board/view_subject"; 
 	}
+	
+	
+	
+	// 게시글 삭제
+	@RequestMapping("subjectDelete.do")
+	public String subjectDelete(BoardDTO boardDTO) {
+		service.deleteSubject(boardDTO);
+		return "redirect:/webDevBoard_1.do";
+	}
+	
+	
 	
 	
 	
